@@ -1,0 +1,54 @@
+Candidate Qualifications Test
+
+You need to Create APIs for an application. We require these APIs to be written using the latest version of PHP Laravel and using the latest features available in the framework.
+
+Endpoints
+Expected functionalities are as follows:
+
+Module		Description											API
+Auth		API to login using email/password and get token to subsequent calls if logged in.	POST: /auth/login
+Products	API to create the product by category and store it in DB.				POST: /products
+Products	API to get the products									GET: /products
+Products	API to get a single product detail							POST: /products/{id}
+Products	API to delete a product from the list							DEL: /products/{id}
+Cart		API to add cart items (guest and auth)							POST: /cart
+Cart		API to update existing cart items by session (guest and auth)				PUT: /cart/{id}
+Cart		API to delete cart items (guest and auth)						DEL: /cart/{id}
+Cart		API to show cart items (guest and auth)							GET: /cart
+
+Database
+There will be 4 main MySQL database tables for this application which are Users, Categories, Products, and Cart tables. 
+
+The product structure must contain these fields:
+1.	Id
+2.	Name (string)
+3.	Price (number)
+4.	Category (string)
+5.	Description (string)
+6.	Avatar (string)
+
+
+The cart object must contain these fields:
+1.	Id
+2.	session_id [from frontend to group the cart items]
+3.	user_id
+4.	product_id
+5.	qty
+
+
+Deliverables
+
+As a deliverable you need to send us fully working code with API endpoints document and SQL file on the GitHub repo by your name. 
+
+we will review your assignment based on the below criteria:
+
+1.	Best coding practices using Laravel/PHP latest features
+2.	Completion of assignment
+3.	Code quality and commenting
+4.	Git commits
+5.	Security best practices (throttling)
+
+
+
+
+Best of luck
