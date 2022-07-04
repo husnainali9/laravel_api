@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cart;
 use App\Http\Resources\CartResource;
+use App\Http\Requests\CartRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -26,25 +27,12 @@ class CartController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CartRequest $request)
     {
         $data = $request->all();
-
-        $validator = Validator::make($data, [
-            'product_id' => 'required',
-            'qty' => 'required'
-        ]);
-
-        if($validator->fails()){
-            return response(['error' => $validator->errors(), 
-            'Validation Error']);
-        }
-
         $cart = Cart::create($data);
 
-        return response([ 'cart' => new 
-        CartResource($cart), 
-        'message' => 'Success'], 200);
+        return response([ 'cart' => new CartResource($cart), 'message' => 'Success'], 200);
     }
 
     /**
